@@ -99,7 +99,7 @@ public class LecteurViewConsole extends AbstractViewConsole<Lecteur> implements 
           ldatas=presenter.getAll();//rafraichissement
           affListe(ldatas);
     }
-    protected  void special() {
+    protected  void special() throws Exception {
         int choix =  choixElt(ldatas);
         Lecteur lec = ldatas.get(choix-1);
 
@@ -141,7 +141,7 @@ public class LecteurViewConsole extends AbstractViewConsole<Lecteur> implements 
         ((SpecialLecteurPresenter)presenter).exemplairesEnLocation(lec);
     }
     @Override
-    public void livreLocation(Lecteur lec){
+    public void livreLocation(Lecteur lec) throws Exception {
         ((SpecialLecteurPresenter)presenter).livreLoues(lec);
     }
 

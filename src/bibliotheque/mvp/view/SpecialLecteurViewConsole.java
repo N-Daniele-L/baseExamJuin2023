@@ -7,7 +7,7 @@ public interface SpecialLecteurViewConsole {
 
     void exemplairesLocation(Lecteur lec);
 
-    void livreLocation(Lecteur lec);
+    void livreLocation(Lecteur lec) throws Exception;
 
     void lecParMail();
 

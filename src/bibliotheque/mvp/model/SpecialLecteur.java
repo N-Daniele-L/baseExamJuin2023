@@ -9,7 +9,7 @@ public interface SpecialLecteur {
     public List<Exemplaire> exemplairesEnLocation(Lecteur l);
     public List<Exemplaire> exemplairesLoues(Lecteur l);
 
-    public List<Exemplaire> livreLoues(Lecteur l);
+    public List<Exemplaire> livreLoues(Lecteur l) throws Exception;
 
     public Lecteur lecParMail(String mail);
 

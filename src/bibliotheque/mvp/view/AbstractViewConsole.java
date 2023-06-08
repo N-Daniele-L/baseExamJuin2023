@@ -79,7 +79,7 @@
         protected  abstract void modifier();
 
         protected abstract  void ajouter();
-       protected abstract void special();
+       protected abstract void special() throws Exception;
     }
 
 

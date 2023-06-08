@@ -34,8 +34,14 @@ public class LecteurModel extends AbstractModel<Lecteur> implements SpecialLecte
     public List<Exemplaire> exemplairesLoues(Lecteur l) {
         return new ArrayList<>(l.listerExemplairesLoues());
     }
-    public List<Exemplaire> livreLoues(Lecteur l){
-        return new ArrayList<>(l.listerLivreLoue());
+    public List<Exemplaire> livreLoues(Lecteur l) throws Exception{
+        List<Exemplaire> list = new ArrayList<>(l.listerLivreLoue());
+        if(list.isEmpty()){
+            throw new Exception("Liste vide");
+        }
+        else {
+            return list;
+        }
     }
 
     @Override

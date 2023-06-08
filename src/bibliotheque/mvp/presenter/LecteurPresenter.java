@@ -32,7 +32,7 @@ public class LecteurPresenter extends Presenter<Lecteur> implements SpecialLecte
         else view.affList(lex);
     }
     @Override
-    public void livreLoues(Lecteur l){
+    public void livreLoues(Lecteur l) throws Exception {
         List<Exemplaire> lex =   ((SpecialLecteur)model).livreLoues(l);
         if(lex==null || lex.isEmpty()) view.affMsg("aucun livre loué par ce lecteur");
         else {
