@@ -1,12 +1,13 @@
 package bibliotheque.mvp.view;
 
-import bibliotheque.metier.Auteur;
-import bibliotheque.metier.Ouvrage;
-import bibliotheque.metier.TypeOuvrage;
+import bibliotheque.metier.*;
 import bibliotheque.mvp.presenter.OuvragePresenter;
 import bibliotheque.mvp.presenter.SpecialOuvragePresenter;
 import bibliotheque.utilitaires.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +16,39 @@ import static bibliotheque.utilitaires.Utilitaire.*;
 
 public class OuvrageViewConsole extends AbstractViewConsole<Ouvrage> implements SpecialOuvrageViewConsole {
     @Override
-    protected void rechercher() {
-      //TODO rechercher ouvrage
+    protected void rechercher() throws Exception {
+        int i = 0;
+        TypeOuvrage[] tto = TypeOuvrage.values();
+        List<TypeOuvrage> lto = new ArrayList<>(Arrays.asList(tto));
+        System.out.println("choix du type d'ouvrage : ");
+        for (TypeOuvrage to: lto) {
+            i++;
+            System.out.println(i + ") " + to);
+        }
+        int ito = lireInt();
+        switch (ito - 1){
+            case 0 :
+                System.out.println("ISBN : ");
+                String isbn = sc.nextLine();
+                Ouvrage rec = null;
+                rec = new Livre("A",0,null,0,"A","A",isbn,0,null,"A");
+                presenter.search(rec);
+                break;
+            case 1 :
+                System.out.println("CODE : ");
+                long code_c = lireLong();
+                Ouvrage rech = null;
+                rech = new CD("A",0, (LocalDate) null, (double) 0,"A","A",code_c, (byte) 0,null);
+                presenter.search(rech);
+                break;
+            case 2 :
+                System.out.println("MATRICULE : ");
+                long code_d = lireLong();
+                Ouvrage rech2 = null;
+                rech2 = new DVD("A",0, (LocalDate) null, (double) 0,"A","A",code_d, (LocalTime) null, (byte) 0);
+                presenter.search(rech2);
+                break;
+        }
     }
 
     @Override

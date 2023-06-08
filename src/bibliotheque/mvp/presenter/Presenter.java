@@ -17,7 +17,7 @@ public abstract class Presenter<T> {
         this.cmp=cmp;
     }
 
-    public void start() {
+    public void start() throws Exception {
 
         view.setListDatas(getAll(),cmp);
     }

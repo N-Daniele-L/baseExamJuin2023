@@ -17,7 +17,7 @@
         }
 
         @Override
-        public void setListDatas(List<T> ldatas, Comparator<T> cmp) {
+        public void setListDatas(List<T> ldatas, Comparator<T> cmp) throws Exception {
             this.ldatas = ldatas;
             this.ldatas.sort(cmp);
             affListe(ldatas);
@@ -34,7 +34,7 @@
            affListe(lelts);
         }
 
-        public void menu() {
+        public void menu() throws Exception {
             List options = new ArrayList<>(Arrays.asList("ajouter", "retirer", "rechercher","modifier","special","fin"));
             do {
                 int ch = choixListe(options);
@@ -74,7 +74,7 @@
             T elt = l.get(nl - 1);
             return elt;
         }
-        protected abstract void rechercher();
+        protected abstract void rechercher() throws Exception;
 
         protected  abstract void modifier();
 

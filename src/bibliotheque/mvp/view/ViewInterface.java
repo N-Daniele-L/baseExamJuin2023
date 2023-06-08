@@ -9,7 +9,7 @@ import java.util.List;
 public interface ViewInterface<T> {
     public void setPresenter(Presenter<T> presenter);
 
-    public void setListDatas(List<T> datas, Comparator<T>cmp);
+    public void setListDatas(List<T> datas, Comparator<T>cmp) throws Exception;
 
     public void affMsg(String msg);
 

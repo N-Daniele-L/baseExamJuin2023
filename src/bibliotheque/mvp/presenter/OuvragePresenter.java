@@ -27,7 +27,11 @@ public class OuvragePresenter extends Presenter<Ouvrage> implements SpecialOuvra
        return  auteurPresenter.selection();
     }
 
-
+    public void search(Ouvrage ou) {
+        Ouvrage o = model.read(ou);
+        if(o==null) view.affMsg("recherche infructueuse");
+        else view.affMsg(o.toString());
+    }
 
     @Override
     public void  listerExemplaire(Ouvrage o){

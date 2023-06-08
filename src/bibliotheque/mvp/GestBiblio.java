@@ -39,7 +39,7 @@
         private ViewInterface<Location> locv;
         private Presenter<Location> locp;
 
-        public void gestion(){
+        public void gestion() throws Exception {
             lm = new LecteurModel();
             lv = new LecteurViewConsole();
             Comparator<Lecteur> cmpl=(l1,l2)->l1.getNom().compareTo(l2.getNom());
@@ -195,7 +195,7 @@
             locm.add(loc);
         }
 
-        public static void main(String[] args) {
+        public static void main(String[] args) throws Exception {
             GestBiblio gb = new GestBiblio();
             gb.gestion();
         }
