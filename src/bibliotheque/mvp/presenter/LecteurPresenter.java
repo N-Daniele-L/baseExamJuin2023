@@ -2,10 +2,12 @@ package bibliotheque.mvp.presenter;
 
 import bibliotheque.metier.Exemplaire;
 import bibliotheque.metier.Lecteur;
+import bibliotheque.metier.Livre;
 import bibliotheque.mvp.model.DAO;
 import bibliotheque.mvp.model.SpecialLecteur;
 import bibliotheque.mvp.view.ViewInterface;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
@@ -28,6 +30,15 @@ public class LecteurPresenter extends Presenter<Lecteur> implements SpecialLecte
         List<Exemplaire> lex =   ((SpecialLecteur)model).exemplairesLoues(l);
         if(lex==null || lex.isEmpty()) view.affMsg("aucun exemplaire trouvé");
         else view.affList(lex);
+    }
+    @Override
+    public void livreLoues(Lecteur l){
+        List<Exemplaire> lex =   ((SpecialLecteur)model).livreLoues(l);
+        if(lex==null || lex.isEmpty()) view.affMsg("aucun livre loué par ce lecteur");
+        else {
+            lex.sort((ex1,ex2) -> ex1.getOuvrage().getTitre().compareTo(ex2.getOuvrage().getTitre()));
+            view.affList(lex);
+        }
     }
 
     @Override

@@ -123,12 +123,28 @@ if(nom==null || prenom==null ||nom.trim().equals("")||prenom.trim().equals("")) 
         return lex;
     }
 
+    public List<Exemplaire> listerLivreEnLocation(){
+        List<Exemplaire> livres = new ArrayList<>();
+        for (Location loc : lloc){
+            if(loc.getDateRestitution()==null && loc.getExemplaire().getOuvrage().getTo() == TypeOuvrage.LIVRE )livres.add(loc.getExemplaire());
+        }
+        return livres;
+    }
+
     public Set<Exemplaire> listerExemplairesLoues(){
         Set<Exemplaire> stex = new HashSet<>();
         for(Location loc : lloc){
             stex.add(loc.getExemplaire());
         }
        return stex;
+    }
+
+    public Set<Exemplaire> listerLivreLoue(){
+        Set<Exemplaire> stlivres = new HashSet<>();
+        for(Location loc : lloc){
+            if(loc.getExemplaire().getOuvrage().getTo() == TypeOuvrage.LIVRE)stlivres.add(loc.getExemplaire());
+        }
+        return stlivres;
     }
 
 }

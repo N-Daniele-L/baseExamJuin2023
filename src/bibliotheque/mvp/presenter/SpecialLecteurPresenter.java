@@ -7,6 +7,8 @@ public interface SpecialLecteurPresenter {
 
     void exemplairesLoues(Lecteur l);
 
+    void livreLoues(Lecteur l);
+
     void lecParMail(String mail);
 
      void chargementLecteurParFichier();

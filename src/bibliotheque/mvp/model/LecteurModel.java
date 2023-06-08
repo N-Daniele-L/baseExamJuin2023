@@ -34,6 +34,9 @@ public class LecteurModel extends AbstractModel<Lecteur> implements SpecialLecte
     public List<Exemplaire> exemplairesLoues(Lecteur l) {
         return new ArrayList<>(l.listerExemplairesLoues());
     }
+    public List<Exemplaire> livreLoues(Lecteur l){
+        return new ArrayList<>(l.listerLivreLoue());
+    }
 
     @Override
     public Lecteur lecParMail(String mail) {
